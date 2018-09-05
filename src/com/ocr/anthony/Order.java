@@ -1,6 +1,18 @@
 package com.ocr.anthony;
 
+import java.util.Scanner;
+
 public class Order {
+  /**
+   * run asking process for a menu
+   */
+  public void runMenu(){
+    this.displayAvailableMenu();
+    Scanner sc = new Scanner(System.in);
+    int nb = sc.nextInt();
+    this.displaySelectedMenu(nb);
+  }
+
   /**
    * Display all available menus in the restaurant.
    */
@@ -11,7 +23,6 @@ public class Order {
     System.out.println("3 - végétarien");
     System.out.println("Que souhaitez-vous commander");
   }
-
   /**
    * Display a selected menu.
    *

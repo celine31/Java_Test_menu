@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
@@ -13,6 +14,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class OrderTest {
 
   private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+
+@Test
+public void Given_ChikenInStandardInput_When_MenuIsRun_Then_DisplayCorrectProcess() {
+  System.setIn(new ByteArrayInputStream("1\n".getBytes()));
+  order = new Order();
+  order.runMenu();
+  String output = outContent.toString().replace("\r\n", "\n");
+  assertEquals(output.endsWith("Vous avez choisi comme menu : poulet\n"), true);
+  assertEquals(output.length() > "Vous avez choisi comme menu : poulet\n".length(), true);
+}
 
   @BeforeEach
   public void setUpStreams() {
@@ -25,6 +36,21 @@ public class OrderTest {
   }
 
   Order order = new Order();
+  @Test
+  public void Given_ChickenStandardInput_When_MenuIsRun_Then_DisplayCorrectProcess(){
+    /* ByteArrayOutputStream(): Le flux de classe ByteArrayOutputStream crée un tampon en mémoire
+   et toutes les données envoyées au flux sont stockées dans le tampon.
+   getByte()Cette méthode encode cette chaîne dans une séquence d'octets utilisant le jeu de
+   caractères par défaut de la plate-forme, stockant le résultat dans un nouveau tableau d'octets.
+*/
+    System.setIn(new ByteArrayInputStream("1\n".getBytes()));
+    order = new Order();
+    order.runMenu();
+    String output = outContent.toString().replace("\r\n", "\n");
+    assertEquals(output.endsWith("Vous avez choisi comme menu : poulet\n"), true);
+    assertEquals(output.length() > "Vous avez choisi comme menu : poulet\n".length(), true);
+  }
+
 
   @Test
   public void Given_Chicken_When_DisplayMenuSelected_Then_DisplayChickenSentence() {
