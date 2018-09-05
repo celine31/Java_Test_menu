@@ -79,4 +79,27 @@ public class Order {
       }
     }
   }
+
+  /*
+   * Display a selected drink depending on include or not.
+   *
+   * @param nbDrink         The selected Drink
+   *
+   */
+  public void displaySelectedSideWater(int nbDrink) {
+      switch (nbDrink) {
+        case 1:
+          System.out.println("Vous avez choisi comme boisson : eau plate");
+          break;
+        case 2:
+          System.out.println("Vous avez choisi comme boisson : eau gazeuse");
+          break;
+        case 3:
+          System.out.println("Vous avez choisi comme boisson : soda");
+          break;
+        case 5:
+          System.out.println("Vous n'avez pas choisi de boisson parmi les choix proposés");
+          break;
+      }
+  }
 }

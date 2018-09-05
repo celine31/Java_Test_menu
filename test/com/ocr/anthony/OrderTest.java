@@ -90,40 +90,74 @@ public class OrderTest {
     String output = outContent.toString().replace("\r\n", "\n");
     assertEquals("Vous avez choisi comme accompagnement : légumes frais\n", output);
   }
+
   @Test
   public void Given_FriesAndAllSides_When_DisplaySideSelected_Then_DisplayFriesSentence() {
     order.displaySelectedSide(2, true);
     String output = outContent.toString().replace("\r\n", "\n");
     assertEquals("Vous avez choisi comme accompagnement : frites\n", output);
   }
+
   @Test
   public void Given_RiceAndAllSides_When_DisplaySideSelected_Then_DisplayRiceSentence() {
     order.displaySelectedSide(3, true);
     String output = outContent.toString().replace("\r\n", "\n");
     assertEquals("Vous avez choisi comme accompagnement : riz\n", output);
   }
+
   @Test
   public void Given_BadValueAndAllSides_When_DisplaySideSelected_Then_DisplayErrorSentence() {
     order.displaySelectedSide(5, true);
     String output = outContent.toString().replace("\r\n", "\n");
     assertEquals("Vous n'avez pas choisi d'accompagnement parmi les choix proposés\n", output);
   }
+
   @Test
   public void Given_RiceAndNotAllSides_When_DisplaySideSelected_Then_DisplayRiceSentence() {
     order.displaySelectedSide(1, false);
     String output = outContent.toString().replace("\r\n", "\n");
     assertEquals("Vous avez choisi comme accompagnement : riz\n", output);
   }
+
   @Test
   public void Given_NoRiceAndNotAllSides_When_DisplaySideSelected_Then_DisplayNoRiceSentence() {
     order.displaySelectedSide(2, false);
     String output = outContent.toString().replace("\r\n", "\n");
     assertEquals("Vous avez choisi comme accompagnement : pas de riz\n", output);
   }
+
   @Test
   public void Given_BadValueAndNotAllSides_When_DisplaySideSelected_Then_DisplayErrorSentence() {
     order.displaySelectedSide(5, false);
     String output = outContent.toString().replace("\r\n", "\n");
     assertEquals("Vous n'avez pas choisi d'accompagnement parmi les choix proposés\n", output);
   }
+
+  @Test
+  public void Given_Water_When_DisplaySideSelected_Then_DisplayDrinkSentence() {
+    order.displaySelectedSideWater(1);
+    String output = outContent.toString().replace("\r\n", "\n");
+    assertEquals("Vous avez choisi comme boisson : eau plate\n", output);
+  }
+
+  @Test
+  public void Given_BubbleWater_When_DisplaySideSelected_Then_DisplayDrinkSentence() {
+    order.displaySelectedSideWater(2);
+    String output = outContent.toString().replace("\r\n", "\n");
+    assertEquals("Vous avez choisi comme boisson : eau gazeuse\n", output);
+  }
+
+  @Test
+  public void Given_Soda_When_DisplaySideSelected_Then_DisplayDrinkSentence() {
+    order.displaySelectedSideWater(3);
+    String output = outContent.toString().replace("\r\n", "\n");
+    assertEquals("Vous avez choisi comme boisson : soda\n", output);
+  }
+  @Test
+  public void Given_BadValue_When_DisplaySideSelected_Then_DisplayDrinkSentence() {
+    order.displaySelectedSideWater(5);
+    String output = outContent.toString().replace("\r\n", "\n");
+    assertEquals("Vous n'avez pas choisi de boisson parmi les choix proposés\n", output);
+  }
+
 }
