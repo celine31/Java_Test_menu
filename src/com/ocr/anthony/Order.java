@@ -6,7 +6,7 @@ public class Order {
   /**
    * run asking process for a menu
    */
-  public void runMenu(){
+  public void runMenu() {
     this.displayAvailableMenu();
     Scanner sc = new Scanner(System.in);
     int nb = sc.nextInt();
@@ -23,6 +23,7 @@ public class Order {
     System.out.println("3 - végétarien");
     System.out.println("Que souhaitez-vous commander");
   }
+
   /**
    * Display a selected menu.
    *
@@ -38,5 +39,44 @@ public class Order {
     } else {
       System.out.println("Vous n'avez pas choisi de menu parmi les choix proposés");
     }
-   }
+  }
+
+  /**
+   * Display a selected side depending on all sides enable or not.
+   * All sides = vegetables, frites and rice
+   * No all sides = rice or not
+   *
+   * @param nbSide         The selected Side
+   * @param allSidesEnable enable display for all side or not
+   */
+  public void displaySelectedSide(int nbSide, boolean allSidesEnable) {
+    if (allSidesEnable) {
+      switch (nbSide) {
+        case 1:
+          System.out.println("Vous avez choisi comme accompagnement : légumes frais");
+          break;
+        case 2:
+          System.out.println("Vous avez choisi comme accompagnement : frites");
+          break;
+        case 3:
+          System.out.println("Vous avez choisi comme accompagnement : riz");
+          break;
+        case 5:
+          System.out.println("Vous n'avez pas choisi d'accompagnement parmi les choix proposés");
+          break;
+      }
+    } else {
+      switch (nbSide) {
+        case 1:
+          System.out.println("Vous avez choisi comme accompagnement : riz");
+          break;
+        case 2:
+          System.out.println("Vous avez choisi comme accompagnement : pas de riz");
+          break;
+        case 5:
+          System.out.println("Vous n'avez pas choisi d'accompagnement parmi les choix proposés");
+          break;
+      }
+    }
+  }
 }
