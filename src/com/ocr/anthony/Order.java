@@ -13,11 +13,9 @@ public class Order {
   public void runMenus() {
     System.out.println("Combien souhaitez vous commander de menu?");
      int nbMenus=sc.nextInt();
-     int count=0;
-     while(count<nbMenus){
+     for(int i=0; i<nbMenus; i++){
        this.runMenu();
-       count=count+1;
-     }
+      }
   }
 
   /**

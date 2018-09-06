@@ -10,7 +10,6 @@ import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
 public class OrderTest {
 
   private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
