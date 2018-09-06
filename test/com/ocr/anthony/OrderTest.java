@@ -187,4 +187,14 @@ public class OrderTest {
     assertEquals("Vous n'avez pas choisi de boisson parmi les choix proposés\n", output);
   }
 
+  @Test
+  public void Given_BadMenu_When_MenuIsRun_Then_ReAskMenu() {
+    System.setIn(new ByteArrayInputStream("4\n1\n2\n3\n".getBytes()));
+    order = new Order();
+    order.runMenu();
+    String[] output = outContent.toString().replace("\r\n", "\n").split("\n");
+    assertEquals("Vous n'avez pas choisi de menu parmi les choix proposés", output[5]);
+    assertEquals("Vous avez choisi comme menu : poulet", output[6]);
+  }
+
 }
