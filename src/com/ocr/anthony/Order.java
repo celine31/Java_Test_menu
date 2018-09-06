@@ -3,12 +3,28 @@ package com.ocr.anthony;
 import java.util.Scanner;
 
 public class Order {
+
+
+  Scanner sc = new Scanner(System.in);
+
+  /*
+  Run asking process for number of menu
+   */
+  public void runMenus() {
+    System.out.println("Combien souhaitez vous commander de menu?");
+     int nbMenus=sc.nextInt();
+     int count=0;
+     while(count<nbMenus){
+       this.runMenu();
+       count=count+1;
+     }
+  }
+
   /**
    * Run asking process for a menu.
    */
   public void runMenu() {
     this.displayAvailableMenu();
-    Scanner sc = new Scanner(System.in);
     int nbMenu = sc.nextInt();
     this.displaySelectedMenu(nbMenu);
     switch (nbMenu) {
